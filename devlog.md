@@ -39,9 +39,9 @@ The following table shows the number of samples for each emotion.
 Beyond this point, modifying the learning rate, batch size, or number of epoch cause little to no effect, and the model seems to overfit beyond Epoch 3.
 
 ```
-Accuracy:     0.6716
-Macro-F1:     0.6002
-Weighted-F1:  0.6675
+Accuracy:     0.6792
+Macro-F1:     0.6032
+Weighted-F1:  0.6743
 ```
 
 
@@ -58,13 +58,13 @@ The source code with focal loss implemented is saved in a branch and ready to be
 ```
 Category Confusion Matrix (without focal loss)
           anger  disgust  fear   joy  sadness  surprise  neutral
-anger       409       21     4    75       33        39      122
-disgust      25       39     2     8        2         4        4
-fear          6        3    57     4       11         4        5
-joy          62        2    10  1772       17        32      159
-sadness      32        4     2    39      176        25       39
-surprise     42        5     3    95       22       331       75
-neutral     227        9     8   297       56       148      861
+anger       396       19     6    71       31        39      141
+disgust      23       37     3     8        4         4        5
+fear          7        3    59     3        8         3        7
+joy          47        3    11  1787       16        36      154
+sadness      30        3     3    39      168        24       50
+surprise     31        3     4    93       21       336       85
+neutral     181        8     7   306       44       157      903
 ```
 
 ```
