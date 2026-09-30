@@ -39,6 +39,7 @@ The following table shows the number of samples for each emotion.
 Beyond this point, modifying the learning rate, batch size, or number of epoch cause little to no effect, and the model seems to overfit beyond Epoch 3.
 
 ```
+Evaluation of base model
 Accuracy:     0.6792
 Macro-F1:     0.6032
 Weighted-F1:  0.6743
@@ -56,6 +57,14 @@ Therefore, I personally believe implementing focal loss would not be particularl
 The source code with focal loss implemented is saved in a branch and ready to be reused if needed.
 
 ```
+Evaluation of model with focal loss
+Accuracy:     0.6178
+Macro-F1:     0.5442
+Weighted-F1:  0.6212
+```
+
+
+```
 Category Confusion Matrix (without focal loss)
           anger  disgust  fear   joy  sadness  surprise  neutral
 anger       396       19     6    71       31        39      141
@@ -71,14 +80,16 @@ neutral     181        8     7   306       44       157      903
 Category Confusion Matrix (with focal loss)
 
           anger  disgust  fear   joy  sadness  surprise  neutral
-anger       412       64    17    43       67        55       45
-disgust      14       57     6     1        4         2        0
-fear          3        5    70     1        9         1        1
-joy         107       24    34  1543       84       117      145
-sadness      33       15    16    16      207        18       12
-surprise     34       10     7    42       24       417       39
-neutral     304       42    58   231      112       257      602
+anger       421       62    18    45       50        48       59
+disgust      10       60     6     3        2         3        0
+fear          4        5    70     0       10         0        1
+joy         117       13    35  1557       76       102      154
+sadness      37       16    14    15      200        17       18
+surprise     35       10     7    43       23       407       48
+neutral     311       42    45   230      104       236      638
 ```
 
 
 ### Meta-learning
+
+TBC
