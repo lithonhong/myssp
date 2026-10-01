@@ -114,8 +114,16 @@ Surprise       3        4     1          7        0        7         5
 
 #### Chinese Multi-Emotion Dialogue Dataset (CMED)
 
-TBC
+This dataset unfortunately does not have any samples for fear.
+This motivated me to remove this label in other sets during meta-learning later on, as its sample size is generally too low.
 
+As the categories are more balanced, I was able to get an accuracy of 0.89 first try.
+
+```
+Accuracy:     0.8889
+Macro-F1:     0.8880
+Weighted-F1:  0.8889
+```
 ### Meta-learning
 
 TBC
