@@ -53,8 +53,8 @@ Weighted-F1:  0.6743
 Due to the disproportionate class sizes of the dataset, I was advised to implement focal loss.
 Indeed, this was helpful in training smaller categories (eg. disgust, fear), with the trade-off of a similar decrement in accuracy for larger categories.
 
-Therefore, I personally believe implementing focal loss would not be particularly beneficial to this research.
-The source code with focal loss implemented is saved in a branch and ready to be reused if needed.
+As this research will pivot towards meta-learning, I believe it is beneficial to keep each category accurate to some degree rather than performing particularly well in certain categories and horrible in others.
+Therefore, the focal loss function is kept in the model.
 
 ```
 Evaluation of model with focal loss
@@ -62,7 +62,6 @@ Accuracy:     0.6178
 Macro-F1:     0.5442
 Weighted-F1:  0.6212
 ```
-
 
 ```
 Category Confusion Matrix (without focal loss)
@@ -89,6 +88,33 @@ surprise     35       10     7    43       23       407       48
 neutral     311       42    45   230      104       236      638
 ```
 
+### Datasets
+
+More datasets are needed to commence meta-learning.
+I took [Chinese Multi-Emotion Dataset](https://huggingface.co/datasets/Johnson8187/Chinese_Multi-Emotion_Dialogue_Dataset) (Chinese) and [MYBully](https://huggingface.co/datasets/mohanrj/MYBully) (Malay) as the datasets here to evaluate the baseline model trained from these datasets.
+These models conveniently also use the Ekman labels.
+
+#### MYBully
+
+The publisher themselves obtained an accuracy of 0.66, but I couldn't get it past 0.52.
+The confusion matrix suggests that the model performs extremely poorly on categories of smaller class size.
+
+```
+Category Confusion Matrix (MYBully)
+
+           Anger  Disgust  Fear  Happiness  Neutral  Sadness  Surprise
+Anger        393       71    29         17       32       43        35
+Disgust       29       31     4          5        4        7         3
+Fear           3        5     4          0        0        6         1
+Happiness      7        8     3         51        8       14        22
+Neutral       51       27    16         23       81       23        19
+Sadness        9        3     7          1        1       45         3
+Surprise       3        4     1          7        0        7         5
+```
+
+#### Chinese Multi-Emotion Dialogue Dataset (CMED)
+
+TBC
 
 ### Meta-learning
 
