@@ -94,6 +94,8 @@ More datasets are needed to commence meta-learning.
 I took [Chinese Multi-Emotion Dataset](https://huggingface.co/datasets/Johnson8187/Chinese_Multi-Emotion_Dialogue_Dataset) (Chinese) and [MYBully](https://huggingface.co/datasets/mohanrj/MYBully) (Malay) as the datasets here to evaluate the baseline model trained from these datasets.
 These models conveniently also use the Ekman labels.
 
+![The distribution of samples in each dataset](archive/imgs/devlog_num_samples.png)
+
 #### MYBully
 
 The publisher themselves obtained an accuracy of 0.66, but I couldn't get it past 0.52.
@@ -118,12 +120,26 @@ This dataset unfortunately does not have any samples for fear.
 This motivated me to remove this label in other sets during meta-learning later on, as its sample size is generally too low.
 
 As the categories are more balanced, I was able to get an accuracy of 0.89 first try.
+The confusion matrix also suggests most samples are categorised correctly, with mistakes few and far between.
 
 ```
 Accuracy:     0.8889
 Macro-F1:     0.8880
 Weighted-F1:  0.8889
 ```
+
+```
+Category Confusion Matrix (CMED)
+          Anger  Disgust  Joy  Neutral  Sadness  Surprise
+Anger        45        6    0        0        0         2
+Disgust       3       36    0        2        0         0
+Joy           0        0   57        0        0         2
+Neutral       0        2    1       64        1         2
+Sadness       0        1    0        2       42         3
+Surprise      1        0    6        5        1        76
+```
+
+
 ### Meta-learning
 
 TBC
