@@ -142,4 +142,15 @@ Surprise      1        0    6        5        1        76
 
 ### Meta-learning
 
+Unfortunately not completed during this week due to technical difficulties.
+
+## Week 3 (20261004 - 20261010)
+
+### Balanced accuracy
+
+Balanced accuracy is believed to be a better metric to analyse performance compared to existing metrics due to the imbalanced nature of the classes in the datasets.
+The notebooks have been edited accordingly, but the code has yet to be ran.
+
+### Meta-learning
+
 TBC
