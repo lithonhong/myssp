@@ -149,8 +149,37 @@ Unfortunately not completed during this week due to technical difficulties.
 ### Balanced accuracy
 
 Balanced accuracy is believed to be a better metric to analyse performance compared to existing metrics due to the imbalanced nature of the classes in the datasets.
-The notebooks have been edited accordingly, but the code has yet to be ran.
+
+The results are as follows (not the same model as the data before):
+
+|  dataset   | accuracy | balanced accuracy | macro-F1 | weighted F1 |
+|------------|----------|-------------------|----------|-------------|
+|   mybully  |   0.4979 |            0.4040 |   0.3467 |  **0.5373** |
+|    cmed    |   0.8944 |        **0.8983** |   0.8948 |      0.8945 |
+| goemotions |   0.6051 |        **0.6562** |   0.5310 |      0.6089 |
+
+From the table above, balanced accuracy seems to yield higher values for already robust datasets.
+This metric is kept for future references.
 
 ### Meta-learning
 
-TBC
+Finally entering the main topic.
+
+I had an initial run of a 5-way, 2-shot, 3-query, 40-episode, 5-epoch model that accidentally included the MYBully dataset in training.
+The results were unsatisfactory (~0.27 accuracy), with a hypothesised cause of low episode count.
+
+Fixing the conceptual errors, I modified the parameters such that the model now runs 6-way, 5-shot, 5-query, 
+The results were positive during training, demonstrating a stable growth with a peak at a validation accuracy of 0.7660.
+```
+Epoch 8/10 | train loss 1.1222, train episode accuracy 0.8556 | validation loss 1.2044, validation episode accuracy 0.7660
+```
+
+However, the MYBully held-out episode results remain unsatisfactory.
+Precision for all classes remain below 0.5, and the confusion matrix suggests a very noisy prediction.
+The hypothesis of low episode count is thought to still apply here, as the model was only given 200 episodes to adapt to the MYBully dataset.
+
+```
+Accuracy:    0.3588
+Balanced accuracy: 0.3588
+Macro-F1:    0.3444
+```
